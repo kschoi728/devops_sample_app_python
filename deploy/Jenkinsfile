@@ -21,8 +21,7 @@ pipeline {
 
   environment {
     REGION = "ap-northeast-2"
-    ECR_REPOSITORY = "$public.ecr.aws/a4e0k2a3/dev"
-    #ECR_REPOSITORY = "${params.AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-2.amazonaws.com"
+    ECR_REPOSITORY = "${params.AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-2.amazonaws.com"
     ECR_DOCKER_IMAGE = "${ECR_REPOSITORY}/${params.DOCKER_IMAGE_NAME}"
     ECR_DOCKER_TAG = "${params.DOCKER_TAG}"
   }
