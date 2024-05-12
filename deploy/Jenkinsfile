@@ -9,19 +9,20 @@ pipeline {
     booleanParam(name : 'DEPLOY_WORKLOAD', defaultValue : true, description : 'DEPLOY_WORKLOAD')
 
     // CI
-    string(name : 'AWS_ACCOUNT_ID', defaultValue : '657976307134', description : 'AWS_ACCOUNT_ID')
+    string(name : 'AWS_ACCOUNT_ID', defaultValue : '992382835044', description : 'AWS_ACCOUNT_ID')
     string(name : 'DOCKER_IMAGE_NAME', defaultValue : 'demo', description : 'DOCKER_IMAGE_NAME')
     string(name : 'DOCKER_TAG', defaultValue : '1.0.0', description : 'DOCKER_TAG')
 
     // CD
     string(name : 'TARGET_SVR_USER', defaultValue : 'ec2-user', description : 'TARGET_SVR_USER')
     string(name : 'TARGET_SVR_PATH', defaultValue : '/home/ec2-user/', description : 'TARGET_SVR_PATH')
-    string(name : 'TARGET_SVR', defaultValue : '10.0.3.61', description : 'TARGET_SVR')
+    string(name : 'TARGET_SVR', defaultValue : '10.0.101.60', description : 'TARGET_SVR')
   }
 
   environment {
     REGION = "ap-northeast-2"
-    ECR_REPOSITORY = "${params.AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-2.amazonaws.com"
+    ECR_REPOSITORY = "$public.ecr.aws/a4e0k2a3/dev"
+    #ECR_REPOSITORY = "${params.AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-2.amazonaws.com"
     ECR_DOCKER_IMAGE = "${ECR_REPOSITORY}/${params.DOCKER_IMAGE_NAME}"
     ECR_DOCKER_TAG = "${params.DOCKER_TAG}"
   }
